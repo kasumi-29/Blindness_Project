@@ -1,0 +1,4 @@
+name: Blindness
+version: ${project.version}
+main: kun.minecraft_plugin.blindness.main
+api-version: 1.15
