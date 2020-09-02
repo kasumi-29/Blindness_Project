@@ -18,14 +18,13 @@ public class event implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
-        m.getServer().getScheduler().runTask(m, () -> {
             Player player=event.getPlayer();
             Location l=player.getLocation();
             l.setY(l.getY()-1);
-            l.getBlock().setType(Material.BEDROCK);
-
-            player.sendBlockChange(player.getLocation(), Material.BEDROCK.createBlockData());
+            l.getBlock().setType(Material.GOLD_BLOCK);
+        m.getServer().getScheduler().runTaskLater(m, () -> {
+            player.sendBlockChange(l, Material.BEDROCK.createBlockData());
             player.sendMessage("ようこそ");
-        });
+        },20L);
     }
 }
